@@ -34,8 +34,10 @@ Sem dependências de build: o site é estático e pode ser servido diretamente.
 │   │   ├── hero.jpg
 │   │   ├── leticia.jpg
 │   │   ├── logo.png
+│   │   ├── logo-mark.png
 │   │   └── sessao.jpg
 │   └── js/
+│       ├── analytics.js
 │       └── main.js
 ├── index.html
 └── README.md
@@ -50,6 +52,19 @@ npx serve .
 # ou
 python -m http.server 8000
 ```
+
+## Métricas
+
+O arquivo `assets/js/analytics.js` integra Google Analytics 4 e Meta Pixel. Para ativar, preencha os IDs em `ANALYTICS_CONFIG`:
+
+```js
+var ANALYTICS_CONFIG = {
+  ga4Id: 'G-XXXXXXXXXX',
+  metaPixelId: '123456789012345'
+};
+```
+
+Com os IDs vazios, nenhum script externo é carregado. Quando ativo, cada clique em WhatsApp, telefone ou Instagram é registrado como o evento `clique_contato` (GA4) e `Contact` (Meta), com o canal, o botão e a seção de origem.
 
 ## Deploy
 
