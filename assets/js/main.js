@@ -1,10 +1,30 @@
 document.querySelectorAll('.js-year').forEach(function(el){ el.textContent = new Date().getFullYear(); });
 
+// Ao recarregar, sempre volta ao topo em vez de restaurar a posição anterior
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+// Links internos rolam até a seção sem gravar "#secao" no endereço
+// (senão, ao recarregar, o navegador pula de volta para ela)
+document.addEventListener('click', function(e){
+  var link = e.target.closest('a[href^="#"]');
+  if (!link || link.getAttribute('href').length < 2) return;
+  var target = document.querySelector(link.getAttribute('href'));
+  if (!target) return;
+  e.preventDefault();
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+  target.focus({ preventScroll: true });
+});
+
 // Menu mobile: fecha ao escolher um link, tocar fora ou pressionar Esc
 var mobileNav = document.querySelector('details.nav-mobile');
 if (mobileNav) {
   var summary = mobileNav.querySelector('summary');
-  var closeMenu = function(){ mobileNav.removeAttribute('open'); };
+  var closeMenu = function(){
+    mobileNav.removeAttribute('open');
+    document.documentElement.classList.remove('menu-open');
+  };
 
   mobileNav.querySelectorAll('nav a, .nav-backdrop').forEach(function(el){
     el.addEventListener('click', closeMenu);
