@@ -49,6 +49,33 @@ if (header) {
   updateHeader();
 }
 
+// Painel "Saiba mais" de cada serviço (conteúdo vem do <template> dentro do card)
+var sheet = document.querySelector('dialog.svc-sheet');
+if (sheet && typeof sheet.showModal === 'function') {
+  document.querySelectorAll('.svc-more').forEach(function(button){
+    button.addEventListener('click', function(){
+      var card = button.closest('.svc-card');
+      var details = card.querySelector('template.svc-details').content.cloneNode(true);
+      sheet.querySelector('.sheet-tag').textContent = card.querySelector('.svc-tag').textContent;
+      sheet.querySelector('#sheet-title').textContent = card.querySelector('h3').textContent;
+      sheet.querySelector('.sheet-media').replaceChildren(details.querySelector('.sheet-gallery'));
+      sheet.querySelector('.sheet-content').replaceChildren(details.querySelector('.sheet-info'));
+      sheet.querySelector('.sheet-cta').href = card.querySelector('.svc-link').href;
+      sheet.showModal();
+      sheet.querySelector('.sheet-scroll').scrollTop = 0;
+      sheet.querySelector('.sheet-gallery').scrollLeft = 0;
+      document.documentElement.classList.add('sheet-open');
+    });
+  });
+  sheet.querySelector('.sheet-close').addEventListener('click', function(){ sheet.close(); });
+  // toque fora do painel (no fundo escurecido) fecha
+  sheet.addEventListener('click', function(e){ if (e.target === sheet) sheet.close(); });
+  sheet.addEventListener('close', function(){ document.documentElement.classList.remove('sheet-open'); });
+} else {
+  // navegador sem suporte a <dialog>: esconde o botão em vez de deixá-lo sem ação
+  document.querySelectorAll('.svc-more').forEach(function(button){ button.hidden = true; });
+}
+
 // Carrossel de serviços: indicadores de posição (visíveis só no mobile)
 var svcGrid = document.querySelector('.svc-grid');
 if (svcGrid && svcGrid.children.length > 1) {

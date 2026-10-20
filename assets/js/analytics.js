@@ -43,11 +43,12 @@ var ANALYTICS_CONFIG = {
     var channel = channelOf(link.getAttribute('href'));
     if (!channel) return;
     var label = (link.textContent.trim() || link.getAttribute('aria-label') || '').replace(/\s+/g, ' ');
-    var card = link.closest('.svc-card');
+    var card = link.closest('.svc-card, .svc-sheet');
     var service = card && card.querySelector('h3');
     if (service) label += ' - ' + service.textContent.trim();
     var location = 'flutuante';
-    if (link.closest('header')) location = 'cabecalho';
+    if (link.closest('.svc-sheet')) location = 'detalhes-servico';
+    else if (link.closest('header')) location = 'cabecalho';
     else if (link.closest('footer')) location = 'rodape';
     else if (link.closest('section')) location = link.closest('section').id || link.closest('section').className.split(' ')[0];
 
