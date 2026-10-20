@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letícia Luanny Massoterapia — Massoterapia em Aracaju/SE</title>
+<meta name="description" content="Sessões de massoterapia personalizadas em Aracaju/SE: massagem relaxante, pedras vulcânicas, liberação miofacial, ventosaterapia e massagem desportiva. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --sage:#CDDAB8;
+    --mist:#F3F6F8;
+    --sky:#D1E5EE;
+    --ink:#20332d;
+    --ink-soft:#4b5a55;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#fff;color:var(--ink);font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;margin:0;line-height:1.08;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding-inline:24px;}
+  .eyebrow{font-family:'Jost',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding-inline:26px;border-radius:999px;font-weight:600;font-size:16px;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;}
+  .btn-primary{background:var(--forest);color:#fff;}
+  .btn-primary:hover{filter:brightness(.9);}
+  .btn-ghost{background:transparent;color:var(--forest);border-color:var(--forest);}
+  .btn-ghost:hover{background:var(--forest);color:#fff;}
+  .btn-on-dark{background:#fff;color:var(--forest);}
+  .btn-on-dark:hover{filter:brightness(.95);}
+  .btn-ghost-on-dark{background:transparent;color:#fff;border-color:rgba(255,255,255,.55);}
+  .btn-ghost-on-dark:hover{border-color:#fff;}
+
+  /* header */
+  header.site{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(32,51,45,.08);}
+  .header-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{height:42px;width:auto;}
+  nav.nav-desktop{display:flex;align-items:center;gap:36px;}
+  nav.nav-desktop a{font-weight:500;font-size:15.5px;color:var(--ink);padding-block:6px;border-bottom:2px solid transparent;}
+  nav.nav-desktop a:hover{color:var(--forest);border-color:var(--sage);}
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  .header-actions .btn{height:44px;padding-inline:20px;font-size:14.5px;}
+  details.nav-mobile{display:none;position:relative;}
+  details.nav-mobile summary{list-style:none;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(32,51,45,.18);cursor:pointer;}
+  details.nav-mobile summary::-webkit-details-marker{display:none;}
+  details.nav-mobile[open] summary{background:var(--mist);}
+  details.nav-mobile nav{position:absolute;top:54px;right:0;background:#fff;border:1px solid rgba(32,51,45,.1);border-radius:16px;box-shadow:0 18px 40px rgba(32,51,45,.14);display:flex;flex-direction:column;min-width:220px;padding:10px;gap:2px;}
+  details.nav-mobile nav a{padding:12px 14px;border-radius:10px;font-weight:500;}
+  details.nav-mobile nav a:hover{background:var(--mist);}
+
+  @media (max-width:900px){
+    nav.nav-desktop,.header-actions .btn-primary{display:none;}
+    details.nav-mobile{display:block;}
+  }
+
+  /* hero */
+  section.hero{padding-block:72px 64px;background:linear-gradient(180deg,var(--mist) 0%, #fff 100%);overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center;}
+  .hero-copy h1{font-size:clamp(34px,4.6vw,56px);margin-top:14px;color:var(--forest);}
+  .hero-copy p.lead{font-size:clamp(16px,1.6vw,19px);color:var(--ink-soft);margin-top:18px;max-width:46ch;line-height:1.6;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;}
+  .trust-row{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;}
+  .trust-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);font-weight:500;}
+  .trust-item svg{width:18px;height:18px;color:var(--teal);flex:none;}
+  .hero-media{position:relative;}
+  .hero-media .blob-a{position:absolute;width:260px;height:260px;border-radius:50%;background:var(--sage);top:-40px;right:-50px;z-index:0;}
+  .hero-media .blob-b{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--sky);bottom:-36px;left:-36px;z-index:0;}
+  .hero-media figure{position:relative;z-index:1;margin:0;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(32,51,45,.35);aspect-ratio:4/5;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-media{order:-1;max-width:360px;margin-inline:auto;width:100%;}
+  }
+
+  /* value strip */
+  section.value-strip{background:var(--forest);padding-block:38px;}
+  .value-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 28px;}
+  .value-item{display:flex;align-items:flex-start;gap:12px;color:#fff;}
+  .value-item svg{width:22px;height:22px;flex:none;margin-top:2px;color:var(--sage);}
+  .value-item span{font-size:14.5px;line-height:1.4;font-weight:500;}
+  @media (max-width:900px){.value-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:520px){.value-grid{grid-template-columns:1fr;}}
+
+  /* about */
+  section.about{padding-block:92px;background:#fff;}
+  .about-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:64px;align-items:center;}
+  .about-media{position:relative;}
+  .about-media .ring{position:absolute;inset:-18px;border:1.5px solid var(--sage);border-radius:26px;z-index:0;}
+  .about-media figure{position:relative;z-index:1;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 48px -20px rgba(32,51,45,.3);}
+  .about-media img{width:100%;height:100%;object-fit:cover;}
+  .about-copy h2{font-size:clamp(28px,3.4vw,40px);color:var(--forest);margin-top:10px;}
+  .about-copy p{font-size:16.5px;color:var(--ink-soft);line-height:1.75;margin-top:20px;max-width:58ch;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .chip{background:var(--mist);border:1px solid rgba(32,51,45,.1);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--forest);}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}.about-media{max-width:340px;margin-inline:auto;width:100%;}}
+
+  /* services */
+  section.services{padding-block:92px;background:var(--mist);}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--forest);margin-top:10px;}
+  .section-head p{font-size:16.5px;color:var(--ink-soft);margin-top:14px;line-height:1.6;}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+  .svc-card{background:#fff;border-radius:20px;padding:30px 26px;box-shadow:0 1px 0 rgba(32,51,45,.04);border:1px solid rgba(32,51,45,.06);transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;display:flex;flex-direction:column;}
+  .svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 36px -18px rgba(32,51,45,.26);border-color:rgba(72,131,153,.28);}
+  .svc-icon{width:54px;height:54px;border-radius:16px;background:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .svc-icon svg{width:26px;height:26px;color:var(--forest);}
+  .svc-tag{display:inline-block;align-self:flex-start;background:var(--mist);color:var(--forest);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:12px;}
+  .svc-card h3{font-size:20px;color:var(--ink);font-weight:600;}
+  .svc-card p{font-size:14.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6;}
+  .svc-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:14px;font-weight:600;color:var(--forest);}
+  .svc-link svg{width:15px;height:15px;transition:transform .16s ease;}
+  .svc-card:hover .svc-link svg{transform:translateX(3px);}
+  .svc-card.cta{background:var(--forest);color:#fff;display:flex;flex-direction:column;}
+  .svc-card.cta h3{color:#fff;}
+  .svc-card.cta p{color:rgba(255,255,255,.82);}
+  .svc-card.cta .btn{margin-top:18px;align-self:flex-start;}
+  .svc-card.cta .svc-icon{background:rgba(255,255,255,.14);}
+  .svc-card.cta .svc-icon svg{color:#fff;}
+  @media (max-width:900px){.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+
+  /* how it works */
+  section.how{padding-block:88px;background:var(--sky);}
+  .how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin-top:44px;}
+  .how-step .num{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;background:#fff;color:var(--forest);font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;margin-bottom:18px;}
+  .how-step h3{font-size:19px;font-weight:600;color:var(--ink);}
+  .how-step p{font-size:14.5px;color:var(--ink-soft);margin-top:8px;line-height:1.6;}
+  @media (max-width:760px){.how-grid{grid-template-columns:1fr;gap:28px;}}
+
+  /* floating whatsapp */
+  .fab-whatsapp{position:fixed;right:22px;bottom:22px;z-index:50;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--forest);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(22,38,33,.28);border:1px solid rgba(32,51,45,.08);}
+  .fab-whatsapp:hover{filter:brightness(.97);}
+  .fab-whatsapp svg{width:27px;height:27px;}
+  @media (max-width:900px){.fab-whatsapp{right:16px;bottom:16px;width:54px;height:54px;}}
+
+  /* band */
+  section.band{padding-block:92px;background:#fff;}
+  .band-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;}
+  .band-media figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 48px -20px rgba(32,51,45,.3);}
+  .band-media img{width:100%;height:100%;object-fit:cover;}
+  .band-copy h2{font-size:clamp(28px,3.4vw,38px);color:var(--forest);margin-top:10px;}
+  .band-copy p.lead{font-size:16px;color:var(--ink-soft);margin-top:16px;line-height:1.65;max-width:50ch;}
+  .diff-list{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .diff-list li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;color:var(--ink);font-weight:500;}
+  .diff-list svg{width:22px;height:22px;color:var(--teal);flex:none;margin-top:1px;}
+  @media (max-width:860px){.band-grid{grid-template-columns:1fr;gap:40px;}.band-media{order:-1;max-width:360px;margin-inline:auto;width:100%;}}
+
+  /* final cta */
+  section.final-cta{padding-block:88px;background:var(--forest);text-align:center;}
+  .final-cta h2{font-size:clamp(30px,4vw,46px);color:#fff;}
+  .final-cta p{font-size:17px;color:rgba(255,255,255,.82);margin:18px auto 0;max-width:52ch;line-height:1.6;}
+  .final-cta .hero-ctas{justify-content:center;margin-top:32px;}
+
+  /* footer */
+  footer.site{background:#162621;padding-block:56px 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-brand img{height:40px;width:auto;filter:brightness(0) invert(1);}
+  .footer-brand p{color:rgba(255,255,255,.62);font-size:14px;margin-top:14px;line-height:1.6;max-width:32ch;}
+  .footer-col h4{color:#fff;font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;}
+  .footer-col a,.footer-col span{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.72);font-size:14.5px;margin-bottom:12px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-col svg{width:18px;height:18px;flex:none;color:var(--sage);}
+  .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;color:rgba(255,255,255,.5);font-size:13px;}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr;gap:28px;}}
+
+</style>
+</head>
+<body>
+
+
+<div style="--forest:#41685D; --teal:#488399;">
+
+<header class="site">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Letícia Luanny Massoterapia — início">
+      <img src="images/logo.png" alt="Letícia Luanny Massoterapia">
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener">Agendar no WhatsApp</a>
+
+      <details class="nav-mobile">
+        <summary aria-label="Abrir menu de navegação">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="width:20px;height:20px;color:var(--forest)">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </summary>
+        <nav aria-label="Navegação">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="#contato">Contato</a>
+          <a href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener" style="color:var(--forest);font-weight:700;">Agendar no WhatsApp</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Massoterapia profissional</p>
+        <h1>Relaxe o corpo, renove a mente</h1>
+        <p class="lead">Sessões de massoterapia pensadas para você: alívio de tensões, cuidado com dores do dia a dia e um momento inteiro dedicado ao seu bem-estar.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:19px;height:19px">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#servicos">Conhecer os serviços</a>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            Atendimento personalizado
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+            Formação em Fisioterapia
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>
+            Aracaju · SE
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="blob-a" aria-hidden="true"></div>
+        <div class="blob-b" aria-hidden="true"></div>
+        <figure>
+          <img src="images/hero.jpg" alt="Letícia Luanny realizando sessão de massagem">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="value-strip">
+    <div class="wrap value-grid">
+      <div class="value-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+        <span>Avaliação individual antes de cada sessão</span>
+      </div>
+      <div class="value-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+        <span>Horários flexíveis sob agendamento</span>
+      </div>
+      <div class="value-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.5l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"></path></svg>
+        <span>Técnicas variadas, adaptadas a você</span>
+      </div>
+      <div class="value-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12s2.5-7 9-7 9 7 9 7-2.5 7-9 7-9-7-9-7z"></path><circle cx="12" cy="12" r="2.6"></circle></svg>
+        <span>Ambiente tranquilo e acolhedor</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <div class="ring" aria-hidden="true"></div>
+        <figure>
+          <img src="images/leticia.jpg" alt="Retrato de Letícia Luanny">
+        </figure>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">Sobre</p>
+        <h2>Letícia Luanny</h2>
+        <p>Com formação em Fisioterapia e especialização em massoterapia, Letícia une técnica e cuidado em cada atendimento. O objetivo é simples: ajudar o seu corpo a relaxar, recuperar o equilíbrio e funcionar melhor — seja para aliviar o estresse da rotina, cuidar de tensões recorrentes ou dar suporte à prática esportiva.</p>
+        <p>Cada sessão começa com uma escuta atenta das suas necessidades, para que a técnica aplicada faça sentido para o seu corpo, do início ao fim.</p>
+        <div class="chip-row">
+          <span class="chip">Fisioterapia</span>
+          <span class="chip">Massoterapia</span>
+          <span class="chip">Atendimento individual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Serviços</p>
+        <h2>Técnicas para cada necessidade</h2>
+        <p>Cada técnica é indicada para um objetivo diferente. Na primeira conversa, definimos juntas qual faz mais sentido para o seu momento.</p>
+      </div>
+
+      <div class="svc-grid">
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.5l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"></path></svg>
+          </div>
+          <span class="svc-tag">Bem-estar</span>
+          <h3>Massagem relaxante</h3>
+          <p>Técnica suave que reduz o estresse, alivia tensões musculares e proporciona sensação imediata de bem-estar.</p>
+          <a class="svc-link" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Massagem%20relaxante." target="_blank" rel="noopener">
+            Agendar esta sessão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="16" r="3.2"></circle><circle cx="13.5" cy="13.2" r="2.4"></circle><circle cx="17.5" cy="17.2" r="1.8"></circle></svg>
+          </div>
+          <span class="svc-tag">Relaxamento profundo</span>
+          <h3>Massagem com pedras vulcânicas</h3>
+          <p>Pedras aquecidas relaxam a musculatura profunda e ajudam a melhorar a circulação sanguínea.</p>
+          <a class="svc-link" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Massagem%20com%20pedras%20vulc%C3%A2nicas." target="_blank" rel="noopener">
+            Agendar esta sessão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"></path><path d="M3 14l9 5 9-5"></path></svg>
+          </div>
+          <span class="svc-tag">Alívio de dores</span>
+          <h3>Liberação miofacial</h3>
+          <p>Trabalho manual sobre a fáscia muscular para aliviar dores crônicas e devolver mobilidade ao corpo.</p>
+          <a class="svc-link" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Libera%C3%A7%C3%A3o%20miofacial." target="_blank" rel="noopener">
+            Agendar esta sessão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3M16 3v3M6 8h12l-1 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8z"></path></svg>
+          </div>
+          <span class="svc-tag">Circulação</span>
+          <h3>Ventosaterapia</h3>
+          <p>Técnica milenar que estimula a circulação, alivia dores e apoia a recuperação muscular.</p>
+          <a class="svc-link" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Ventosaterapia." target="_blank" rel="noopener">
+            Agendar esta sessão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+
+        <div class="svc-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg>
+          </div>
+          <span class="svc-tag">Recuperação</span>
+          <h3>Massagem desportiva</h3>
+          <p>Indicada para atletas e praticantes de atividade física, auxilia na recuperação e prevenção de lesões.</p>
+          <a class="svc-link" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20Massagem%20desportiva." target="_blank" rel="noopener">
+            Agendar esta sessão
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+
+        <div class="svc-card cta">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-9.8 8.3A8.5 8.5 0 0 1 3.2 12 8.5 8.5 0 0 1 12 3.5a8.5 8.5 0 0 1 9 8z"></path></svg>
+          </div>
+          <h3>Não sabe qual escolher?</h3>
+          <p>Conte o que você está sentindo e eu te ajudo a encontrar a técnica ideal para o seu momento.</p>
+          <a class="btn btn-on-dark" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:0;">
+        <p class="eyebrow">Como funciona</p>
+        <h2>Simples do início ao fim</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="num">1</div>
+          <h3>Chame no WhatsApp</h3>
+          <p>Conte o que você está sentindo e tire suas dúvidas sobre a técnica ideal.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">2</div>
+          <h3>Agende seu horário</h3>
+          <p>Combinamos juntas o melhor dia e horário para a sua sessão.</p>
+        </div>
+        <div class="how-step">
+          <div class="num">3</div>
+          <h3>Aproveite sua sessão</h3>
+          <p>É só relaxar — o cuidado com o seu corpo fica por nossa conta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="diferenciais">
+    <div class="wrap band-grid">
+      <div class="band-media">
+        <figure>
+          <img src="images/sessao.jpg" alt="Detalhe de uma sessão de massagem">
+        </figure>
+      </div>
+      <div class="band-copy">
+        <p class="eyebrow">Diferenciais</p>
+        <h2>Cuidado em cada sessão</h2>
+        <p class="lead">Mais do que uma técnica, uma experiência pensada do começo ao fim para que você saia mais leve do que entrou.</p>
+        <ul class="diff-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg>
+            Avaliação individual antes de cada atendimento
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg>
+            Ambiente pensado para o seu conforto
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg>
+            Técnicas adaptadas ao seu objetivo
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9"></path></svg>
+            Agendamento flexível, de acordo com a sua disponibilidade
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="contato">
+    <div class="wrap">
+      <h2>Pronta(o) para cuidar de você?</h2>
+      <p>Agende sua sessão de massoterapia e sinta a diferença de um atendimento pensado especialmente para o seu corpo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-on-dark" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        <a class="btn btn-ghost-on-dark" href="https://instagram.com/luannyfisio_" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Letícia Luanny Massoterapia">
+        <p>Massoterapia e terapias manuais em Aracaju, com atendimento individual e personalizado.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          (79) 99803-4464
+        </a>
+        <a href="https://instagram.com/luannyfisio_" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="1"></circle></svg>
+          @luannyfisio_
+        </a>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.3"></circle></svg>
+          Aracaju · SE
+        </span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="js-year">2026</span> Letícia Luanny Massoterapia. Todos os direitos reservados.</span>
+      <span>Site desenvolvido com cuidado para o seu negócio.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab-whatsapp" href="https://wa.me/5579998034464?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20sess%C3%A3o%20de%20massoterapia." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+</a>
+
+</div>
+
+<script>
+  document.querySelectorAll('.js-year').forEach(function(el){ el.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>
