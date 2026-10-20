@@ -39,7 +39,8 @@ var ANALYTICS_CONFIG = {
 
   document.addEventListener('click', function(e){
     var link = e.target.closest('a[href]');
-    if (!link) return;
+    // o crédito do desenvolvedor não é um contato com a Letícia
+    if (!link || link.closest('.credit')) return;
     var channel = channelOf(link.getAttribute('href'));
     if (!channel) return;
     var label = (link.textContent.trim() || link.getAttribute('aria-label') || '').replace(/\s+/g, ' ');
