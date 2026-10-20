@@ -291,6 +291,7 @@ a,button,summary{-webkit-tap-highlight-color:transparent;}
 /* interações */
 :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:6px;}
 .btn:focus-visible{border-radius:999px;}
+[tabindex="-1"]:focus{outline:none;}
 .btn{transition:filter .15s ease,background-color .15s ease,color .15s ease,border-color .15s ease,transform .1s ease;}
 .btn:active{transform:scale(.98);}
 #top{scroll-margin-top:120px;}
