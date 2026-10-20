@@ -27,12 +27,18 @@ Sem dependências de build: o site é estático e pode ser servido diretamente.
 
 ```
 .
-├── images/
-│   ├── hero.jpg
-│   ├── leticia.jpg
-│   ├── logo.png
-│   └── sessao.jpg
-└── index.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css
+│   ├── images/
+│   │   ├── hero.jpg
+│   │   ├── leticia.jpg
+│   │   ├── logo.png
+│   │   └── sessao.jpg
+│   └── js/
+│       └── main.js
+├── index.html
+└── README.md
 ```
 
 ## Executando localmente
