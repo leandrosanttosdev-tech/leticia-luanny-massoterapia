@@ -58,12 +58,27 @@ if (sheet && typeof sheet.showModal === 'function') {
       var details = card.querySelector('template.svc-details').content.cloneNode(true);
       sheet.querySelector('.sheet-tag').textContent = card.querySelector('.svc-tag').textContent;
       sheet.querySelector('#sheet-title').textContent = card.querySelector('h3').textContent;
-      sheet.querySelector('.sheet-media').replaceChildren(details.querySelector('.sheet-gallery'));
+      var gallery = details.querySelector('.sheet-gallery');
+      sheet.querySelector('.sheet-media').replaceChildren(gallery);
       sheet.querySelector('.sheet-content').replaceChildren(details.querySelector('.sheet-info'));
       sheet.querySelector('.sheet-cta').href = card.querySelector('.svc-link').href;
+
+      // indicadores da galeria (só quando há mais de uma foto)
+      var dots = sheet.querySelector('.sheet-dots');
+      dots.replaceChildren();
+      if (gallery.children.length > 1) {
+        for (var i = 0; i < gallery.children.length; i++) dots.appendChild(document.createElement('span'));
+        var updateSheetDots = function(){
+          var index = Math.round(gallery.scrollLeft / (gallery.clientWidth || 1));
+          for (var j = 0; j < dots.children.length; j++) dots.children[j].classList.toggle('is-active', j === index);
+        };
+        gallery.addEventListener('scroll', updateSheetDots, { passive: true });
+        updateSheetDots();
+      }
+
       sheet.showModal();
       sheet.querySelector('.sheet-scroll').scrollTop = 0;
-      sheet.querySelector('.sheet-gallery').scrollLeft = 0;
+      gallery.scrollLeft = 0;
       document.documentElement.classList.add('sheet-open');
     });
   });
@@ -101,20 +116,6 @@ if (svcGrid && svcGrid.children.length > 1) {
 }
 
 if ('IntersectionObserver' in window) {
-  // Barra de agendamento mobile: só aparece entre o hero e a seção de contato
-  var bar = document.querySelector('.mobile-bar');
-  var barTargets = document.querySelectorAll('section.hero, #contato, footer.site');
-  if (bar && barTargets.length) {
-    var inView = new Map();
-    var barObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){ inView.set(entry.target, entry.isIntersecting); });
-      var blocked = false;
-      inView.forEach(function(visible){ if (visible) blocked = true; });
-      bar.classList.toggle('is-visible', !blocked);
-    });
-    barTargets.forEach(function(el){ barObserver.observe(el); });
-  }
-
   // Revela os blocos suavemente ao entrar na tela
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     var revealEls = document.querySelectorAll('.value-item, .about-media, .about-copy, .section-head, .svc-grid, .how-step, .band-media, .band-copy, .final-cta .wrap');

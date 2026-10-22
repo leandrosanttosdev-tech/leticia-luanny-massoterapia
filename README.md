@@ -55,7 +55,7 @@ python -m http.server 8000
 
 ## Fotos e detalhes dos serviços
 
-Cada serviço tem duas fotos em `assets/images/servicos/` (`<servico>-1.jpg` aparece no card, e as duas aparecem no painel "Saiba mais"). As fotos atuais são provisórias, do [Unsplash](https://unsplash.com/license) (uso comercial gratuito); a origem de cada uma está em `assets/images/servicos/CREDITOS.md`. Para trocar pelas fotos reais, basta substituir os arquivos mantendo o mesmo nome — de preferência na horizontal (4:3), com cerca de 960×720 px e até 150 KB.
+Cada serviço tem duas fotos em `assets/images/servicos/` (`<servico>-1.jpg` aparece no card, e as duas aparecem no painel "Saiba mais"). As fotos atuais são provisórias, do [Unsplash](https://unsplash.com/license) (uso comercial gratuito); a origem de cada uma está em `assets/images/servicos/CREDITOS.md`. Para trocar pelas fotos reais, basta substituir os arquivos mantendo o mesmo nome — de preferência na horizontal (3:2), com cerca de 960×640 px e até 150 KB.
 
 Os textos do painel (duração, intensidade, "para quem é indicada" e "como é a sessão") ficam no `<template class="svc-details">` de cada card, em `index.html`.
 
