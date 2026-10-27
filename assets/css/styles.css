@@ -82,6 +82,7 @@ section.hero{padding-block:72px 64px;background:linear-gradient(180deg,var(--mis
 .hero-media .blob-b{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--sky);bottom:-36px;left:-36px;z-index:0;}
 .hero-media figure{position:relative;z-index:1;margin:0;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(32,51,45,.35);aspect-ratio:4/5;}
 .hero-media img{width:100%;height:100%;object-fit:cover;}
+figure picture{display:contents;}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:40px;}
   .hero-media{order:-1;max-width:360px;margin-inline:auto;width:100%;}
