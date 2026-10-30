@@ -10,7 +10,7 @@ Landing page de página única, responsiva, que apresenta a profissional, os ser
 
 - **Início** — apresentação e chamada principal para agendamento
 - **Sobre** — trajetória e abordagem da profissional
-- **Serviços** — massagem relaxante, pedras vulcânicas, liberação miofascial, ventosaterapia e massagem desportiva
+- **Serviços** — massagem relaxante, pedras quentes, liberação miofascial, ventosaterapia e massagem desportiva
 - **Diferenciais** — o que torna o atendimento único
 - **Contato** — WhatsApp e Instagram
 
