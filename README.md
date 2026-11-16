@@ -84,3 +84,16 @@ Por ser um site estático, pode ser publicado em qualquer serviço de hospedagem
 ---
 
 © Letícia Luanny Massoterapia. Todos os direitos reservados.
+
+## Animações (Motion)
+
+As animações de entrada, de rolagem e dos botões usam a biblioteca [Motion](https://motion.dev) (versão JavaScript, sem React), em `assets/js/animacoes.js`. O site continua estático e sem etapa de build: o arquivo `assets/js/vendor/motion.js` já vem pronto no repositório (só as funções usadas, cerca de 29 KB comprimido) e as licenças estão em `assets/js/vendor/LICENSES-motion.txt`. Quem pede "reduzir movimento" no aparelho não vê animações.
+
+Para atualizar a biblioteca (opcional):
+
+```bash
+npm install motion@latest
+echo 'export { animate, inView, hover, press, stagger, scroll } from "motion";' > _entry.js
+npx esbuild _entry.js --bundle --minify --format=iife --global-name=Motion --legal-comments=none --target=es2019 --outfile=assets/js/vendor/motion.js
+rm _entry.js
+```

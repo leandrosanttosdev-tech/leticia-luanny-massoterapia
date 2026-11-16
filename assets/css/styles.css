@@ -207,9 +207,7 @@ section.how{padding-block:88px;background:#EDF2E4;}
   .fab-whatsapp svg{width:23px;height:23px;}
 }
 
-/* revelar ao rolar (a classe .reveal só é aplicada via JS) */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);}
-.reveal.is-visible{opacity:1;transform:none;}
+/* revelar ao rolar e entrada do topo: feitos com a biblioteca Motion (assets/js/animacoes.js) */
 
 /* indicadores do carrossel de serviços (só no mobile) */
 .svc-dots{display:none;}
@@ -338,8 +336,8 @@ a,button,summary{-webkit-tap-highlight-color:transparent;}
 :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:6px;}
 .btn:focus-visible{border-radius:999px;}
 [tabindex="-1"]:focus{outline:none;}
-.btn{transition:filter .15s ease,background-color .15s ease,color .15s ease,border-color .15s ease,transform .1s ease;}
-.btn:active{transform:scale(.98);}
+.btn{transition:filter .15s ease,background-color .15s ease,color .15s ease,border-color .15s ease;}
+/* o destaque ao passar o mouse e ao apertar vem da biblioteca Motion (assets/js/animacoes.js) */
 #top{scroll-margin-top:120px;}
 .svc-link{align-self:flex-start;}
 .footer-col a{width:fit-content;}
@@ -486,3 +484,11 @@ dialog.book-sheet::backdrop{background:rgba(22,38,33,.5);animation:fade-in .25s 
 .book-foot{position:sticky;bottom:0;margin:0 -24px;padding:14px 24px calc(16px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid rgba(32,51,45,.08);}
 .book-foot .book-note{margin:0 0 12px;}
 @media (min-width:641px){.book-foot{margin:0 -34px;padding:14px 34px 26px;}}
+
+/* topo escondido só até a animação de entrada começar (boot.js marca a página; sem JS ou sem a biblioteca, o conteúdo aparece normal) */
+html.motion .hero-copy > *,html.motion .hero-media{opacity:0;}
+
+/* parallax das fotos: a imagem fica um pouco maior que a moldura para poder se mover sem mostrar bordas */
+html.motion .hero-media img,html.motion .about-media img{scale:1.12;}
+/* ramo de folhas: depois da entrada, o balanço ao rolar passa a ser controlado pela biblioteca Motion */
+.vine.vine-live .leaf{animation:none;opacity:1;}

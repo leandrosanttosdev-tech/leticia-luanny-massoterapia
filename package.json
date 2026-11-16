@@ -1,0 +1,7 @@
+{
+  "name": "leticia-luanny-massoterapia",
+  "private": true,
+  "dependencies": {
+    "motion": "^14.14.0"
+  }
+}

@@ -115,26 +115,7 @@ if (svcGrid && svcGrid.children.length > 1) {
   updateDots();
 }
 
-if ('IntersectionObserver' in window) {
-  // Revela os blocos suavemente ao entrar na tela
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var revealEls = document.querySelectorAll('.value-item, .about-media, .about-copy, .section-head, .svc-grid, .how-step, .band-media, .band-copy, .final-cta .wrap');
-    var revealObserver = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      });
-    }, { rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach(function(el){
-      // escalona itens irmãos (ex.: os 3 passos aparecem em sequência)
-      var siblings = Array.prototype.filter.call(el.parentNode.children, function(s){ return s.classList.contains('reveal'); });
-      el.style.transitionDelay = (siblings.length * 90) + 'ms';
-      el.classList.add('reveal');
-      revealObserver.observe(el);
-    });
-  }
-}
+// (a animação de "revelar ao rolar" agora fica em assets/js/animacoes.js, com a biblioteca Motion)
 
 // Destaca no menu a seção visível
 var navLinks = document.querySelectorAll('nav.nav-desktop a[href^="#"]');
