@@ -64,7 +64,7 @@ html.menu-open{overflow:hidden;}
 @keyframes fade-in{from{opacity:0;}}
 
 @media (max-width:900px){
-  nav.nav-desktop,.header-actions .btn-primary{display:none;}
+  nav.nav-desktop{display:none;}
   details.nav-mobile{display:block;}
 }
 
@@ -377,7 +377,3 @@ nav.nav-desktop a.is-active{color:var(--forest);border-color:var(--sage);}
 .fab-whatsapp{transition:transform .15s ease,opacity .35s ease,visibility .35s;}
 html.cta-watch .fab-whatsapp{opacity:0;visibility:hidden;pointer-events:none;}
 html.cta-watch.past-hero:not(.at-final) .fab-whatsapp{opacity:1;visibility:visible;pointer-events:auto;}
-@media (min-width:901px){
-  html.cta-watch .header-actions>.btn-primary{opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s ease,visibility .35s,transform .35s ease,filter .15s ease;}
-  html.cta-watch.past-hero .header-actions>.btn-primary{opacity:1;visibility:visible;transform:none;}
-}
