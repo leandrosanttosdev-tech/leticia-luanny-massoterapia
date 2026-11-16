@@ -29,6 +29,13 @@ var ANALYTICS_CONFIG = {
 
   if (!config.ga4Id && !config.metaPixelId) return;
 
+  // Agendamento concluído no formulário (registra só os serviços, nunca nome ou idade)
+  document.addEventListener('agendar:enviar', function(e){
+    var servicos = (e.detail && e.detail.servicos || []).join(', ');
+    if (window.gtag) window.gtag('event', 'agendamento_whatsapp', { servicos: servicos });
+    if (window.fbq) window.fbq('track', 'Lead', { content_name: servicos });
+  });
+
   // Registra cliques nos canais de contato
   function channelOf(href){
     if (href.indexOf('wa.me') !== -1) return 'whatsapp';

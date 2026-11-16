@@ -377,3 +377,112 @@ nav.nav-desktop a.is-active{color:var(--forest);border-color:var(--sage);}
 .fab-whatsapp{transition:transform .15s ease,opacity .35s ease,visibility .35s;}
 html.cta-watch .fab-whatsapp{opacity:0;visibility:hidden;pointer-events:none;}
 html.cta-watch.past-hero:not(.at-final) .fab-whatsapp{opacity:1;visibility:visible;pointer-events:auto;}
+
+/* ramo de folhas decorativo no cabeçalho (verde claro) */
+.vine{--leaf:#8FB9A3;display:block;width:clamp(250px,29vw,400px);height:auto;flex:none;overflow:visible;}
+.vine-stem{fill:none;stroke:var(--leaf);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:vine-draw 1.8s cubic-bezier(.22,.8,.2,1) .4s forwards;}
+.vine .leaf{fill:var(--leaf);opacity:0;transform-box:fill-box;transform-origin:0 50%;animation:leaf-in .8s cubic-bezier(.22,.8,.2,1) calc(.8s + var(--i) * .08s) forwards;}
+@keyframes vine-draw{to{stroke-dashoffset:0;}}
+@keyframes leaf-in{from{opacity:0;transform:scale(.2);}to{opacity:1;transform:none;}}
+@media (max-width:900px){.vine{display:none;}}
+@media (prefers-reduced-motion:reduce){.vine-stem{animation:none;stroke-dashoffset:0;}.vine .leaf{animation:none;opacity:1;}}
+
+/* ==========================================================================
+   Compatibilidade entre aparelhos (celular, tablet, notebook, monitor grande)
+   ========================================================================== */
+:root{color-scheme:only light;}
+
+/* margens seguras em celulares com notch, principalmente na horizontal */
+.wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right));}
+@media (max-width:640px){.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));}}
+
+/* leitura: nenhum texto abaixo de 11px */
+.brand-sub{font-size:11px;}
+.photo-note{font-size:11px;}
+.svc-tag{font-size:12px;}
+
+/* rodapé: marca com largura do conteúdo e crédito fácil de tocar */
+.footer-brand .brand{width:fit-content;}
+.credit a{display:inline-block;padding:10px 4px;margin:-10px -4px;}
+
+/* tablet e celular: texto e botão vêm antes da foto (o botão fica visível sem rolar) */
+@media (max-width:900px){
+  .hero-media{order:0;max-width:440px;margin-inline:auto;}
+  section.hero{padding-block:44px 56px;}
+}
+
+/* ramo de folhas do cabeçalho em tablet e celular: ocupa o espaço entre a marca e o menu */
+@media (max-width:900px){
+  .header-actions{flex:1 1 auto;min-width:0;justify-content:flex-end;gap:12px;}
+  .vine{display:block;flex:1 1 0;width:0;min-width:64px;max-width:270px;height:auto;margin-left:auto;}
+}
+@media (max-width:359px){.vine{display:none;}}
+
+/* telas muito grandes: limita a largura e mantém proporção */
+@media (min-width:1700px){
+  .wrap{max-width:1320px;}
+  .hero-copy h1{font-size:64px;}
+}
+
+/* celular deitado (paisagem): o menu e o painel rolam em vez de cortar */
+@media (max-height:520px){
+  details.nav-mobile nav{overflow-y:auto;}
+  dialog.svc-sheet{max-height:96vh;max-height:96dvh;}
+  section.hero{padding-block:28px 48px;}
+}
+
+/* ==========================================================================
+   Formulário de agendamento (nome, idade e serviços antes do WhatsApp)
+   ========================================================================== */
+dialog.book-sheet{padding:0;border:0;margin:auto auto 0;width:100%;max-width:100%;max-height:94vh;max-height:94dvh;border-radius:24px 24px 0 0;background:#fff;color:var(--ink);overflow:hidden;box-shadow:0 -20px 50px -20px rgba(22,38,33,.4);}
+dialog.book-sheet[open]{animation:sheet-up .32s cubic-bezier(.2,.7,.2,1);}
+dialog.book-sheet::backdrop{background:rgba(22,38,33,.5);animation:fade-in .25s ease;}
+.book-form{max-height:inherit;max-height:94dvh;overflow-y:auto;overscroll-behavior:contain;padding:30px 24px calc(24px + env(safe-area-inset-bottom));}
+.book-head{padding-right:44px;margin-bottom:22px;}
+.book-head h3{font-size:30px;color:var(--forest);margin-top:2px;}
+.book-head p{margin-top:8px;font-size:15.5px;line-height:1.5;color:var(--ink-soft);}
+
+.book-form .field{margin:0 0 18px;padding:0;border:0;min-width:0;}
+.book-form label,.book-form legend{display:block;padding:0;margin-bottom:8px;font-size:14px;font-weight:600;color:var(--ink);}
+.book-form legend span{font-weight:400;color:var(--ink-soft);}
+.book-form input[type="text"]{width:100%;height:52px;padding:0 16px;border:1.5px solid rgba(32,51,45,.22);border-radius:14px;background:#fff;color:var(--ink);font:inherit;font-size:16px;transition:border-color .15s ease,box-shadow .15s ease;}
+.book-form input[type="text"]::placeholder{color:rgba(75,90,85,.6);}
+.book-form input[type="text"]:hover{border-color:rgba(32,51,45,.4);}
+.book-form input[type="text"]:focus{outline:0;border-color:var(--forest);box-shadow:0 0 0 4px rgba(72,131,153,.2);}
+.book-form input[aria-invalid="true"]{border-color:#b3362b;box-shadow:0 0 0 4px rgba(179,54,43,.12);}
+.field-age{max-width:180px;}
+.err{display:block;min-height:0;margin-top:6px;font-size:13.5px;font-weight:500;color:#a32f25;}
+.err:empty{display:none;}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{position:relative;display:inline-flex;margin:0 !important;cursor:pointer;}
+.chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer;}
+.chip span{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 16px;border:1.5px solid rgba(32,51,45,.22);border-radius:999px;background:#fff;font-size:14.5px;font-weight:500;line-height:1.25;color:var(--ink);transition:background-color .15s ease,border-color .15s ease,color .15s ease;}
+.chip span::before{content:"";flex:none;width:16px;height:16px;border:1.5px solid rgba(32,51,45,.35);border-radius:50%;background:#fff center/10px no-repeat;transition:background-color .15s ease,border-color .15s ease;}
+.chip:hover span{border-color:var(--forest);}
+.chip input:checked + span{background:var(--forest);border-color:var(--forest);color:#fff;}
+.chip input:checked + span::before{border-color:#fff;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.2 6.3 4.9 9 9.8 3.2' fill='none' stroke='%2341685D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");}
+.chip input:focus-visible + span{outline:2.5px solid var(--teal);outline-offset:3px;}
+.chip-help span{border-style:dashed;}
+.chip-help input:checked + span{border-style:solid;}
+
+.book-note{margin:2px 0 20px;font-size:13px;line-height:1.5;color:var(--ink-soft);}
+.book-submit{width:100%;}
+.book-submit svg{width:19px;height:19px;}
+
+@media (min-width:641px){
+  dialog.book-sheet{margin:auto;max-width:540px;max-height:90vh;border-radius:24px;box-shadow:0 30px 70px -20px rgba(22,38,33,.5);}
+  .book-form{max-height:90vh;padding:36px 34px 30px;}
+}
+@media (max-height:520px){
+  dialog.book-sheet{max-height:100vh;max-height:100dvh;}
+  .book-form{max-height:100dvh;}
+}
+@media (prefers-reduced-motion:reduce){dialog.book-sheet[open],dialog.book-sheet::backdrop{animation:none;}}
+.book-form input[aria-invalid="true"]:focus{border-color:#b3362b;box-shadow:0 0 0 4px rgba(179,54,43,.18);}
+
+/* botão de envio sempre visível no fim do formulário */
+.book-form{padding-bottom:0;}
+.book-foot{position:sticky;bottom:0;margin:0 -24px;padding:14px 24px calc(16px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid rgba(32,51,45,.08);}
+.book-foot .book-note{margin:0 0 12px;}
+@media (min-width:641px){.book-foot{margin:0 -34px;padding:14px 34px 26px;}}

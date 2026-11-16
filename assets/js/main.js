@@ -85,7 +85,7 @@ if (sheet && typeof sheet.showModal === 'function') {
   sheet.querySelector('.sheet-close').addEventListener('click', function(){ sheet.close(); });
   // toque fora do painel (no fundo escurecido) fecha
   sheet.addEventListener('click', function(e){ if (e.target === sheet) sheet.close(); });
-  sheet.addEventListener('close', function(){ document.documentElement.classList.remove('sheet-open'); });
+  sheet.addEventListener('close', function(){ if (!document.querySelector('dialog.book-sheet[open]')) document.documentElement.classList.remove('sheet-open'); });
 } else {
   // navegador sem suporte a <dialog>: esconde o botão em vez de deixá-lo sem ação
   document.querySelectorAll('.svc-more').forEach(function(button){ button.hidden = true; });
@@ -171,4 +171,109 @@ if ('IntersectionObserver' in window && navLinks.length) {
       root.classList.toggle('at-final', entries[0].isIntersecting);
     }, { rootMargin: '0px 0px -25% 0px' }).observe(finalCta);
   }
+})();
+
+// Agendamento: antes de abrir o WhatsApp, pede nome completo, idade e serviço(s)
+// e monta a mensagem. Nada é armazenado nem enviado a servidor: os dados só vão
+// na mensagem do WhatsApp. Sem suporte a <dialog>, os links abrem o WhatsApp direto.
+(function(){
+  var NUMBER = '5579998034464';
+  var HELP = 'Ainda não sei, preciso de ajuda para escolher';
+  var root = document.documentElement;
+  var dlg = document.querySelector('dialog.book-sheet');
+  if (!dlg || typeof dlg.showModal !== 'function') return;
+
+  var form = dlg.querySelector('form');
+  var nome = form.elements.nome, idade = form.elements.idade;
+  var box = dlg.querySelector('#book-services');
+  var errNome = dlg.querySelector('#err-nome'), errIdade = dlg.querySelector('#err-idade'), errServ = dlg.querySelector('#err-servicos');
+
+  // opções de serviço geradas a partir dos cards, para nunca ficarem fora de sincronia
+  var titles = Array.prototype.map.call(document.querySelectorAll('.svc-card:not(.cta) h3'), function(h){ return h.textContent.trim(); });
+  titles.concat([HELP]).forEach(function(t, i){
+    var label = document.createElement('label');
+    label.className = 'chip' + (t === HELP ? ' chip-help' : '');
+    var input = document.createElement('input');
+    input.type = 'checkbox'; input.name = 'servico'; input.value = t;
+    var span = document.createElement('span'); span.textContent = t;
+    label.appendChild(input); label.appendChild(span);
+    box.appendChild(label);
+  });
+  var boxes = Array.prototype.slice.call(box.querySelectorAll('input'));
+  var helpBox = boxes[boxes.length - 1];
+
+  // "ainda não sei" e os serviços específicos não se misturam
+  box.addEventListener('change', function(e){
+    if (e.target === helpBox && helpBox.checked) boxes.forEach(function(b){ if (b !== helpBox) b.checked = false; });
+    else if (e.target !== helpBox && e.target.checked) helpBox.checked = false;
+    errServ.textContent = '';
+  });
+
+  idade.addEventListener('input', function(){ idade.value = idade.value.replace(/\D/g, '').slice(0, 3); });
+  [nome, idade].forEach(function(el){ el.addEventListener('input', function(){ el.removeAttribute('aria-invalid'); (el === nome ? errNome : errIdade).textContent = ''; }); });
+
+  function openBook(preselect){
+    form.reset();
+    [errNome, errIdade, errServ].forEach(function(e){ e.textContent = ''; });
+    [nome, idade].forEach(function(el){ el.removeAttribute('aria-invalid'); });
+    boxes.forEach(function(b){ b.checked = preselect.indexOf(b.value) !== -1; });
+    dlg.showModal();
+    dlg.querySelector('.book-form').scrollTop = 0;
+    // o painel de detalhes (se estava aberto) dispara "close" depois; garante o bloqueio de rolagem
+    setTimeout(function(){ root.classList.add('sheet-open'); }, 0);
+  }
+
+  document.addEventListener('click', function(e){
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var t = e.target.closest('[data-agendar], .sheet-cta');
+    if (!t) return;
+    e.preventDefault();
+    var pre = [];
+    if (t.classList.contains('sheet-cta')) {
+      pre = [document.querySelector('#sheet-title').textContent.trim()];
+      var detalhes = document.querySelector('dialog.svc-sheet');
+      if (detalhes && detalhes.open) detalhes.close();
+    } else if (t.getAttribute('data-agendar') === 'ajuda') {
+      pre = [HELP];
+    }
+    openBook(pre);
+  });
+
+  dlg.querySelector('.sheet-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function(){ root.classList.remove('sheet-open'); form.reset(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nomeVal = nome.value.replace(/[*_~`\r\n]/g, ' ').replace(/\s+/g, ' ').trim();
+    var palavras = nomeVal.split(' ').filter(Boolean);
+    var ok = true, primeiro = null;
+
+    if (palavras.length < 2 || nomeVal.length < 5 || !/^[\p{L}][\p{L}'’.\- ]*$/u.test(nomeVal)) {
+      errNome.textContent = 'Digite seu nome e sobrenome.'; nome.setAttribute('aria-invalid', 'true'); ok = false; primeiro = primeiro || nome;
+    }
+    var idadeNum = /^\d{1,3}$/.test(idade.value) ? parseInt(idade.value, 10) : NaN;
+    if (!(idadeNum >= 1 && idadeNum <= 120)) {
+      errIdade.textContent = 'Digite sua idade em números (ex.: 28).'; idade.setAttribute('aria-invalid', 'true'); ok = false; primeiro = primeiro || idade;
+    }
+    var escolhidos = boxes.filter(function(b){ return b.checked; }).map(function(b){ return b.value; });
+    if (!escolhidos.length) { errServ.textContent = 'Escolha pelo menos um serviço.'; ok = false; primeiro = primeiro || boxes[0]; }
+    if (!ok) { primeiro.focus(); return; }
+
+    var texto = 'Olá, Letícia! Tudo bem?\n' +
+      'Gostaria de agendar uma sessão de massoterapia.\n\n' +
+      '*Nome:* ' + nomeVal + '\n' +
+      '*Idade:* ' + idadeNum + ' anos\n' +
+      '*Serviços:* ' + escolhidos.join(', ') + '\n\n' +
+      'Poderia me informar os horários disponíveis?\n' +
+      'Obrigado(a)!';
+    var link = document.createElement('a');
+    link.href = 'https://wa.me/' + NUMBER + '?text=' + encodeURIComponent(texto);
+    link.target = '_blank'; link.rel = 'noopener';
+    document.body.appendChild(link); link.click(); link.remove();
+
+    // métricas: só os serviços escolhidos, nunca nome ou idade
+    document.dispatchEvent(new CustomEvent('agendar:enviar', { detail: { servicos: escolhidos } }));
+    dlg.close();
+  });
 })();
