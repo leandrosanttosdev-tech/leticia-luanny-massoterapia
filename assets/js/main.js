@@ -61,7 +61,7 @@ if (sheet && typeof sheet.showModal === 'function') {
       var gallery = details.querySelector('.sheet-gallery');
       sheet.querySelector('.sheet-media').replaceChildren(gallery);
       sheet.querySelector('.sheet-content').replaceChildren(details.querySelector('.sheet-info'));
-      sheet.querySelector('.sheet-cta').href = card.querySelector('.svc-link').href;
+      sheet.querySelector('.sheet-cta').href = button.dataset.wa;
 
       // indicadores da galeria (só quando há mais de uma foto)
       var dots = sheet.querySelector('.sheet-dots');
@@ -152,3 +152,23 @@ if ('IntersectionObserver' in window && navLinks.length) {
     if (section) observer.observe(section);
   });
 }
+
+// Botões de WhatsApp sem repetição: o do cabeçalho e o flutuante só aparecem
+// depois que o botão do hero sai da tela, e o flutuante some na chamada final.
+(function(){
+  var heroCta = document.querySelector('.hero-ctas');
+  var finalCta = document.querySelector('.final-cta');
+  if (!heroCta || !('IntersectionObserver' in window)) return;
+  var root = document.documentElement;
+  root.classList.add('cta-watch');
+  new IntersectionObserver(function(entries){
+    var e = entries[0];
+    // "passou do hero" = botão fora da tela e acima da área visível
+    root.classList.toggle('past-hero', !e.isIntersecting && e.boundingClientRect.top < 0);
+  }).observe(heroCta);
+  if (finalCta) {
+    new IntersectionObserver(function(entries){
+      root.classList.toggle('at-final', entries[0].isIntersecting);
+    }, { rootMargin: '0px 0px -25% 0px' }).observe(finalCta);
+  }
+})();

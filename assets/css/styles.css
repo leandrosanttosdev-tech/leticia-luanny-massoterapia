@@ -78,8 +78,6 @@ section.hero{padding-block:72px 64px;background:linear-gradient(180deg,var(--mis
 .trust-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink-soft);font-weight:500;}
 .trust-item svg{width:18px;height:18px;color:var(--teal);flex:none;}
 .hero-media{position:relative;}
-.hero-media .blob-a{position:absolute;width:260px;height:260px;border-radius:50%;background:var(--sage);top:-40px;right:-50px;z-index:0;}
-.hero-media .blob-b{position:absolute;width:180px;height:180px;border-radius:50%;background:var(--sky);bottom:-36px;left:-36px;z-index:0;}
 .hero-media figure{position:relative;z-index:1;margin:0;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(32,51,45,.35);aspect-ratio:4/5;}
 .hero-media img{width:100%;height:100%;object-fit:cover;}
 figure picture{display:contents;}
@@ -278,8 +276,6 @@ a,button,summary{-webkit-tap-highlight-color:transparent;}
   .hero-media{order:0;max-width:none;}
   .hero-media figure{aspect-ratio:4/3.4;border-radius:22px;}
   .hero-media img{object-position:center 30%;}
-  .hero-media .blob-a{width:170px;height:170px;top:-24px;right:-40px;}
-  .hero-media .blob-b{width:120px;height:120px;bottom:-24px;left:-30px;}
   .hero-copy h1{font-size:38px;margin-top:10px;}
   .hero-copy p.lead{font-size:16.5px;margin-top:14px;}
   .hero-ctas{flex-direction:column;gap:12px;margin-top:26px;}
@@ -375,3 +371,13 @@ nav.nav-desktop a.is-active{color:var(--forest);border-color:var(--sage);}
 
 /* mesmo tratamento leve em todas as fotos, para unir as reais e as ilustrativas */
 .hero-media img,.about-media img,.band-media img,.svc-photo img,.sheet-gallery img{filter:saturate(.88) sepia(.08) contrast(.97) brightness(1.02);}
+
+/* WhatsApp sem repetição: só aparecem quando o botão do hero já saiu da tela */
+.svc-actions{justify-content:flex-start;}
+.fab-whatsapp{transition:transform .15s ease,opacity .35s ease,visibility .35s;}
+html.cta-watch .fab-whatsapp{opacity:0;visibility:hidden;pointer-events:none;}
+html.cta-watch.past-hero:not(.at-final) .fab-whatsapp{opacity:1;visibility:visible;pointer-events:auto;}
+@media (min-width:901px){
+  html.cta-watch .header-actions>.btn-primary{opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s ease,visibility .35s,transform .35s ease,filter .15s ease;}
+  html.cta-watch.past-hero .header-actions>.btn-primary{opacity:1;visibility:visible;transform:none;}
+}

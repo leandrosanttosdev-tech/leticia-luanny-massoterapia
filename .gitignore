@@ -18,3 +18,14 @@ build/
 *.log
 .env
 .env.*
+
+# Segredos e chaves: nunca devem ser versionados
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+credentials*.json
+secrets*
+*.sql
+*.bak
