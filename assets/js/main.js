@@ -246,8 +246,7 @@ if ('IntersectionObserver' in window && navLinks.length) {
       '*Nome:* ' + nomeVal + '\n' +
       '*Idade:* ' + idadeNum + ' anos\n' +
       '*Serviços:* ' + escolhidos.join(', ') + '\n\n' +
-      'Poderia me informar os horários disponíveis?\n' +
-      'Obrigado(a)!';
+      'Fico no aguardo! Obrigado(a)';
     var link = document.createElement('a');
     link.href = 'https://wa.me/' + NUMBER + '?text=' + encodeURIComponent(texto);
     link.target = '_blank'; link.rel = 'noopener';
