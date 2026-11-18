@@ -15,8 +15,8 @@ e o site as sinaliza como "Imagem ilustrativa".
 | miofascial-2.jpg | https://images.unsplash.com/photo-1757689314932-bec6e9c39e51 |
 | ventosaterapia-1.jpg | https://images.unsplash.com/photo-1745327883389-17150e99dcf7 |
 | ventosaterapia-2.jpg | https://images.unsplash.com/photo-1598555748505-ccca0d9b9f7b |
-| desportiva-1.jpg | https://images.unsplash.com/photo-1712638932314-e2b185ca0930 |
-| desportiva-2.jpg | https://images.unsplash.com/photo-1749131871347-6d211039ac3e |
+| desportiva-1.jpg | **Pexels** (não é Unsplash): "A Woman in White Shirt Massaging the Leg of the Person", de koolshooters — https://www.pexels.com/photo/a-woman-in-white-shirt-massaging-the-leg-of-the-person-6628810/ — [Licença Pexels](https://www.pexels.com/license/): uso gratuito, inclusive comercial, sem necessidade de atribuição. Recortada na parte de baixo (mãos e perna, sem o rosto da terapeuta), em 3:2, e reduzida para 960×640. Obtida em 16/11/2026. |
+| desportiva-2.jpg | **Pexels** (não é Unsplash): "Hands of a Person Pressing a Leg", de Paolo Ortega (@paolo-ortega-155343406), publicada em 18/01/2022 — https://www.pexels.com/photo/hands-of-a-person-pressing-a-leg-10893352/ — [Licença Pexels](https://www.pexels.com/license/): uso gratuito, inclusive comercial, sem necessidade de atribuição. Recortada em 3:2 (close das mãos) e reduzida para 960×640. Obtida em 16/11/2026. |
 
 Ao substituir uma foto pela foto real da Letícia, remova a linha correspondente desta tabela
 (e, quando todas forem reais, os selos "Imagem ilustrativa" em `index.html`).
