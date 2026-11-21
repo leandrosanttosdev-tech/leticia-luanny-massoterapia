@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#41685D">
   <meta name="color-scheme" content="only light">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://*.googletagmanager.com https://www.facebook.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://connect.facebook.net; object-src 'none'; base-uri 'self'; form-action 'none'">
+    content="default-src 'self'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://*.googletagmanager.com https://www.facebook.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.facebook.com https://connect.facebook.net; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -46,11 +46,9 @@
   <title>Letícia Luanny Massoterapia — Massoterapia em Aracaju/SE</title>
   <meta name="description"
     content="Sessões de massoterapia personalizadas em Aracaju/SE: massagem relaxante, pedras quentes, liberação miofascial, ventosaterapia e massagem desportiva. Agende pelo WhatsApp.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <script src="assets/js/boot.js"></script>
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" type="image/png" href="assets/images/logo-mark.png">
@@ -380,6 +378,8 @@
                   <p>Você fica deitada(o) confortavelmente na maca. Com óleo e movimentos lentos, longos e ritmados, a
                     massagem percorre costas, pescoço, braços e pernas. A pressão é leve a moderada e ajustada ao seu
                     gosto.</p>
+                  <h4>Cuidados e contraindicações</h4>
+                  <p>Avise antes da sessão se estiver grávida ou tiver trombose, febre, infecção ou lesão na pele, câncer, osteoporose, problema cardíaco ou usar anticoagulante. Nesses casos a técnica pode precisar de adaptação ou não ser indicada. Na dúvida, consulte seu médico.</p>
                 </div>
               </template>
             </div>
@@ -428,6 +428,8 @@
                   <h4>Como é a sessão</h4>
                   <p>Pedras lisas são aquecidas e posicionadas em pontos das costas e ao longo do corpo. O calor solta a
                     musculatura, e as pedras também são deslizadas com creme, combinando massagem e aquecimento.</p>
+                  <h4>Cuidados e contraindicações</h4>
+                  <p>Avise antes da sessão se estiver grávida ou tiver trombose, febre, infecção ou lesão na pele, câncer, osteoporose, problema cardíaco ou usar anticoagulante. Nesses casos a técnica pode precisar de adaptação ou não ser indicada. Na dúvida, consulte seu médico. Por usar calor, avise também se tem diabetes ou pouca sensibilidade na pele.</p>
                 </div>
               </template>
             </div>
@@ -478,6 +480,8 @@
                   <p>Com pressão sustentada das mãos, dos dedos ou do antebraço, a técnica trabalha a fáscia — o tecido
                     que envolve os músculos. Os movimentos são lentos e profundos, focados nas regiões de dor. Pode
                     haver um leve desconforto no momento, seguido de alívio.</p>
+                  <h4>Cuidados e contraindicações</h4>
+                  <p>Avise antes da sessão se estiver grávida ou tiver trombose, febre, infecção ou lesão na pele, câncer, osteoporose, problema cardíaco ou usar anticoagulante. Nesses casos a técnica pode precisar de adaptação ou não ser indicada. Na dúvida, consulte seu médico. A pressão é firme, então avise se tem dor intensa, lesão recente ou fragilidade nos ossos.</p>
                 </div>
               </template>
             </div>
@@ -527,6 +531,8 @@
                   <p>Copos de acrílico criam uma sucção sobre a pele, que puxa o tecido e estimula a circulação local.
                     Os copos podem ficar parados ou ser deslizados com óleo. É comum ficarem marcas arroxeadas, que
                     somem em alguns dias.</p>
+                  <h4>Cuidados e contraindicações</h4>
+                  <p>Avise antes da sessão se estiver grávida ou tiver trombose, febre, infecção ou lesão na pele, câncer, osteoporose, problema cardíaco ou usar anticoagulante. Nesses casos a técnica pode precisar de adaptação ou não ser indicada. Na dúvida, consulte seu médico. Como a técnica pode deixar marcas na pele, avise se tem pele sensível ou tendência a hematomas.</p>
                 </div>
               </template>
             </div>
@@ -577,6 +583,8 @@
                   <p>Utiliza manobras mais abrangentes (como amassamentos e deslizamentos) para preparar o corpo para o
                     exercício, aliviar a fadiga e acelerar a recuperação pós-treino. A sessão é adaptada ao momento do
                     treino: preparação, recuperação ou manutenção.</p>
+                  <h4>Cuidados e contraindicações</h4>
+                  <p>Avise antes da sessão se estiver grávida ou tiver trombose, febre, infecção ou lesão na pele, câncer, osteoporose, problema cardíaco ou usar anticoagulante. Nesses casos a técnica pode precisar de adaptação ou não ser indicada. Na dúvida, consulte seu médico.</p>
                 </div>
               </template>
             </div>
@@ -756,7 +764,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© <span class="js-year">2026</span> Letícia Luanny Massoterapia. Todos os direitos reservados.</span>
+          <span>© <span class="js-year">2026</span> Letícia Luanny Massoterapia. Todos os direitos reservados. · <a class="legal-link" href="privacidade.html">Política de Privacidade</a></span>
           <span class="credit">Desenvolvido por <a href="https://www.instagram.com/leandrooo_santtos/" target="_blank"
               rel="noopener">@leandrooo_santtos</a></span>
         </div>

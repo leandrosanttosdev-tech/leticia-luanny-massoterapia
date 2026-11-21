@@ -19,7 +19,7 @@ Landing page de página única, responsiva, que apresenta a profissional, os ser
 - HTML5 semântico
 - CSS3 (custom properties, layout responsivo)
 - JavaScript (vanilla)
-- Google Fonts — Cormorant Garamond e Jost
+- Fontes Cormorant Garamond e Jost, hospedadas localmente em `assets/fonts/` (sem requisições ao Google)
 
 Sem dependências de build: o site é estático e pode ser servido diretamente.
 

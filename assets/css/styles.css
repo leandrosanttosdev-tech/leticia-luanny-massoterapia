@@ -492,3 +492,17 @@ html.motion .hero-copy > *,html.motion .hero-media{opacity:0;}
 html.motion .hero-media img,html.motion .about-media img{scale:1.12;}
 /* ramo de folhas: depois da entrada, o balanço ao rolar passa a ser controlado pela biblioteca Motion */
 .vine.vine-live .leaf{animation:none;opacity:1;}
+
+/* Link da Política de Privacidade no rodapé e página legal */
+.legal-link{color:rgba(255,255,255,.78);font-weight:500;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px;transition:color .15s ease,text-decoration-color .15s ease;}
+.legal-link:hover{color:#fff;text-decoration-color:#fff;}
+.legal{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
+.legal h1{font-size:clamp(34px,6vw,48px);margin:10px 0 8px;}
+.legal h2{font-size:26px;margin:36px 0 10px;}
+.legal p,.legal li{font-size:17px;line-height:1.7;color:var(--ink-soft);}
+.legal p{margin-bottom:12px;}
+.legal ul{margin:0 0 12px;padding-left:22px;}
+.legal a{color:var(--forest);text-decoration:underline;text-underline-offset:3px;}
+.legal .btn{color:#fff;text-decoration:none;}
+.legal .updated{font-size:14px;color:var(--ink-soft);}
+.legal-back{display:inline-flex;margin-top:32px;}
